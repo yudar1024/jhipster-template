@@ -1,0 +1,82 @@
+logging:
+  level:
+    ROOT: INFO
+    com.mycompany.myapp: INFO
+    io.github.jhipster: INFO
+spring:
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: test
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/apptemplate?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: null
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    show-sql: false
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: true
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: true
+      hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
+  liquibase:
+    contexts: prod
+  mail:
+    host: localhost
+    port: 25
+    username: null
+    password: null
+  thymeleaf:
+    cache: true
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+jhipster:
+  http:
+    version: V_1_1
+    cache:
+      timeToLiveInDays: 1461
+  cache:
+    ehcache:
+      time-to-live-seconds: 3600
+      max-entries: 1000
+  security:
+    authentication:
+      jwt:
+        base64-secret: M2E5ZGJhZTRmYTIwZGMyYmRiNTZmMzVjOTA1NzYyMTM1MWIwYjg2YzU5NzYyZmNiZGRhOTlhOWNlZjU1YzQzMmIyOWI5OWY1MWY5NmU0NmVkM2UyNTJmMjA4MTQxZTczMjVkOGUxMjUzMTQwY2Y4ZDI3M2FkZDg4OTRlZDJlZDE=
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  mail:
+    from: apptemplate@localhost
+    base-url: http://my-server-url-to-change
+  metrics:
+    logs:
+      enabled: false
+      report-frequency: 60
+  logging:
+    logstash:
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
